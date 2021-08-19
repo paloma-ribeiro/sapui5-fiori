@@ -1,0 +1,95 @@
+<mvc:View
+    controllerName="numen.t21.apps.orders.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.uxap"
+    xmlns:m="sap.m"
+    xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    displayBlock="true"
+    height="100%"
+    busyIndicatorDelay="0">
+    <ObjectPageLayout
+        showTitleInHeaderContent="true"
+        alwaysShowContentHeader="false"
+        preserveHeaderStateOnScroll="false"
+        headerContentPinnable="true"
+        isChildPage="true"
+        upperCaseAnchorBar="false">
+        <headerTitle>
+            <ObjectPageDynamicHeaderTitle>
+            </ObjectPageDynamicHeaderTitle>
+        </headerTitle>
+        <sections>
+            <ObjectPageSection title="Customer Info">
+                <subSections>
+                    <ObjectPageSubSection showTitle="false">
+                        <blocks>
+                            <m:Panel
+                                expandable="true"
+                                expanded="true"
+                                headerText="Customer Infor">
+                                <form:SimpleForm
+                                    editable="false"
+                                    layout="ResponsiveGridLayout"
+                                    labelSpanM="4"
+                                    columnsL="3"
+                                    columnsM="2">
+                                    <form:content>
+                                        <core:Title text="Contact Info"/>
+                                        <m:Label text="Person"/>
+                                        <m:Text text=" {/Data/Customer/ContactName}"/>
+                                        <m:Label text="Position"/>
+                                        <m:Text text=" {/Data/Customer/ContactTitle}"/>
+                                        <m:Label text="Phone"/>
+                                        <m:Text text=" {/Data/Customer/Phone}"/>
+                                        <core:Title text="Shipment"/>
+                                        <m:Label text="Shipped by"/>
+                                        <m:Text text=" {/Data/Shipper/CompanyName}"/>
+                                        <m:Label text="Phone"/>
+                                        <m:Text text=" {/Data/Shipper/Phone}"/>
+                                    </form:content>
+                                </form:SimpleForm>
+                            </m:Panel>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+                    <ObjectPageSection title="Invoices" showTitle="false">
+                        <subSections>
+                            <ObjectPageSubSection>
+                                <blocks>
+                                    <m:Panel
+                                        expandable="true"
+                                        expanded="true"
+                                        headerText="Invoices">
+                                        <m:Table id="tbInvoices" items="{/Invoices}">
+                                            <m:columns>
+                                                <m:Column>
+                                                    <m:Text text="Order"/>
+                                                </m:Column>
+                                                <m:Column>
+                                                    <m:Text text="Shipped By"/>
+                                                </m:Column>
+                                            </m:columns>
+                                            <m:items>
+                                                <m:ColumnListItem type="Inactive">
+                                                    <m:cells>
+                                                        <m:ObjectIdentifier
+                                                            title="{ProductName}"
+                                                            text="{ path: 'ExtendedPrice', formatter:'.formatter.toCurrency'}"/>
+                                                        <m:ObjectIdentifier
+                                                            title="{ShipperName}"
+                                                            text="{ShipCountry}"/>
+                                                    </m:cells>
+                                                </m:ColumnListItem>
+                                            </m:items>
+                                        </m:Table>
+                                    </m:Panel>
+                                </blocks>
+                            </ObjectPageSubSection>
+                    </subSections>
+            </ObjectPageSection>
+        </sections>
+    </ObjectPageLayout>   
+</mvc:View>

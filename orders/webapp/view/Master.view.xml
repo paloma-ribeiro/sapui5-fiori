@@ -1,0 +1,42 @@
+<mvc:View
+    controllerName="numen.t21.apps.orders.controller.Master"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+	<Page id="page" title="{i18n>title}">
+		<content>
+            <Table
+                id="tableOrders"
+                width="auto"
+                alternateRowColors="true"
+                contextualWidth="Auto"
+                growing="true"
+                growingThreshold="30"
+                growingScrollToLoad="true"
+                items="{ path: '/Orders' }" >
+                <headerToolbar>
+                    <OverflowToolbar>
+                         <Title text="Customer Orders"/>
+                        <ToolbarSpacer />
+                        <SearchField search=".onSearch" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                    <columns>
+                    <Column>
+                            <Text text="Order"/>
+                    </Column>
+                    </columns>
+                        <items>
+                            <ColumnListItem type="Navigation" press="onListPressItem" >
+                                <cells>
+                                    <ObjectIdentifier
+                                        title="{OrderID}"
+                                        text="{ShipCountry}" />
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                </Table>
+        </content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,82 @@
+<mvc:View
+    controllerName="numen.talentos.app001.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+>
+    <!--
+	<Shell id="shell">
+		<App id="app" class="myApp001">
+			<pages>
+            -->
+				<Page id="page" title="{i18n>title}">
+					<content>
+                        <!--<Input value="{companyModel>/ScarrSet/Carrname}"></Input>-->
+                        <Input id="companyInput" ></Input>
+                        <Text text="{companyModel>/ScarrSet/Carrname}" class="myCustomText" />
+                        <SearchField width="50%" search=".onFilterCompanies"/>
+
+                    <!--<l:VerticalLayout id="vLayout" class="sapUiContentPadding"
+                        
+                        width="100%">
+                            <Text text="{companyModel>Carrid}" />
+                            <Text text="{companyModel>Carrname}" />
+                            <Text text="{companyModel>Currcode}" />
+                            <Text text="{companyModel>Url}" />
+                    </l:VerticalLayout>-->
+
+                    <List
+                        id="companyList"
+                        items="{/ScarrSet}">
+                        <headerToolbar>
+                            <OverflowToolbar>
+                                <Title text="{i18n>companyList_header_txt}" level="H2"/>
+                                <ToolbarSpacer />
+                                <Button
+                                    icon="sap-icon://create"
+                                    text="{i18n>btn_novo_txt}"
+                                    press=".onBtnCreatePress" />
+                            </OverflowToolbar>
+                        </headerToolbar>
+                        
+
+                        <ObjectListItem
+                            title="{Carrname}"
+                            type="Active"
+                            press=".onListItemPressed">
+                            <ObjectAttribute text="{Url}" />
+                            <ObjectAttribute text="{Currcode}" />
+                        </ObjectListItem>
+	                </List>
+
+                    <!--
+                    <List 
+                        id="companyList"
+                        items="{path:'/SpfliSet', sorter:{path:'Carrid', descending: true}}"
+                        headerText="{i18n>companyList_header_txt}">
+                        <ObjectListItem
+                            title="{Cityfrom} {i18n>to_txt} {Cityto}"
+                            type="Active"
+                            icon="{
+                                    path:'Fltime',
+                                    formatter: '.formatter.statusFlTime'
+                                 }">
+                            <firstStatus>
+                                <ObjectStatus
+                                    text="{Fltime}"
+                                    state="{= ${Fltime} > 300 ? 'Error' : 'Success'}" />
+                            </firstStatus>
+                            <ObjectAttribute text="{Connid}" />
+                            <ObjectAttribute text="{Carrid}" />
+                        </ObjectListItem>
+	                </List>
+                    -->
+
+                    </content>
+				</Page>
+                <!--
+			</pages>
+		</App>
+	</Shell>-->
+</mvc:View>

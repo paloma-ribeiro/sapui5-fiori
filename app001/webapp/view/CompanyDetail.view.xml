@@ -1,0 +1,53 @@
+<mvc:View
+    controllerName="numen.talentos.app001.controller.CompanyDetail"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    busyIndicatorDelay="0">
+    <Page
+        id="companyDetailPage"
+        title="{i18n>CompanyDetailsOf} {Carrname}"
+        showNavButton="true"
+        navButtonPress="onNavBack"
+        class="sapUIResponsiveContentPadding">
+        <content>
+            <Panel
+                id="companyDetailPanel"
+                width="auto"
+                class="sapUIResponsiveMargin sapUINoContentPadding">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="{i18n>CompanyIDColon} {Carrid}" level="H2"/>
+                        <ToolbarSpacer />
+                    </Toolbar>
+                </headerToolbar>
+                <content>
+                    <f:SimpleForm
+                        minWidth="1024"
+                        editable="false"
+                        layout="ResponsiveGridLayout"
+                        labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4"
+                        columnsL="1" columnsM="1">
+                        <f:content>
+                            <Label text="{i18n>CompanyIDColon}" visible="{editCompanyModel>/isNew}"/>
+                            <Input type="Text" visible="{editCompanyModel>/isNew}" value="{Carrid}" />
+                            <Label text="{i18n>formCompanyName}"/>
+                            <Input type= "Text" value="{Carrname}"/>
+                            <Label text="{i18n>formCurrCode}"/>
+                            <Input type= "Text" value="{Currcode}"/>
+                            <Label text="{i18n>formUrl}"/>
+                            <Input type= "Text" value="{Url}"/>
+                        </f:content>
+                    </f:SimpleForm>
+                </content>
+            </Panel>
+        </content>
+        <footer>
+           <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button text="{i18n>salvar_btn_txt}" type="Accept" press=".onBtnSavePress"/>
+                <Button text="{i18n>delete_btn_txt}" type="Reject" press=".onBtnDeletePress"/>
+           </OverflowToolbar> 
+        </footer>    
+    </Page>
+</mvc:View>

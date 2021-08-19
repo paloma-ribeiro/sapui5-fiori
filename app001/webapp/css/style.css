@@ -1,0 +1,10 @@
+/* Enter your custom styles here */
+
+.myApp001 .myCustomText{
+    font-weight: bold;
+    color: rgb(43, 107, 226);
+    font-size: 20px;
+    display: inline-block;
+    margin-left: 2%;
+    margin-top: 1%;
+}
